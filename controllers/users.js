@@ -113,11 +113,8 @@ const UserController = {
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
   },
   async followList(req, res, next) {
-    const { _id } = req.user;
-    const followList = await User.findById(_id, 'following').populate({
-      path: 'user',
-      select: '_id name avatar',
-    });
+    const id = req.user._id;
+    const followList = await User.findById(id, 'following');
     successHandler(res, followList);
   },
   async follow(req, res, next) {
