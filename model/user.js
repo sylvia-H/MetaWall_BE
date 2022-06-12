@@ -62,15 +62,6 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.pre(/^find/, function(next) {
-  this.populate({
-    path: 'followers.user following.user',
-    select: '_id name avatar'
-  });
-
-  next();
-});
-
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

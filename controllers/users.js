@@ -115,7 +115,7 @@ const UserController = {
   async followList(req, res, next) {
     const id = req.user._id;
     const followList = await User.findById(id, 'following').populate({
-      path: 'following',
+      path: 'following.user',
       select: '_id name avatar',
     });
     successHandler(res, followList);
