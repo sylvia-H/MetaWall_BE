@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
     },
     sex: {
       type: String,
-      enum: ['Male','Female'],
+      enum: ['Male', 'Female'],
     },
     password: {
       type: String,
@@ -28,8 +28,32 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       default: 'user',
-      enum: ['user','admin'],
+      enum: ['user', 'admin', 'super'],
     },
+    followers: [
+      {
+        user: {
+          type: mongoose.Schema.ObjectId,
+          ref: 'User',
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+    following: [
+      {
+        user: {
+          type: mongoose.Schema.ObjectId,
+          ref: 'User',
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: true,

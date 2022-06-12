@@ -106,6 +106,36 @@ router.patch(
   asyncErrorHandler(UserController.editProfile)
 );
 
+router.get(
+  '/follow',
+  /**
+   * #swagger.tags = ['User - 使用者']
+   * #swagger.description = '取得追蹤名單 API'
+   */
+  isAuth,
+  asyncErrorHandler(UserController.followList)
+);
+
+router.post(
+  '/follow/:id',
+  /**
+   * #swagger.tags = ['User - 使用者']
+   * #swagger.description = '使用者追蹤朋友 API'
+   */
+  isAuth,
+  asyncErrorHandler(UserController.follow)
+);
+
+router.delete(
+  '/follow/:id',
+  /**
+   * #swagger.tags = ['User - 使用者']
+   * #swagger.description = '使用者取消追蹤朋友 API'
+   */
+  isAuth,
+  asyncErrorHandler(UserController.unFollow)
+);
+
 // 後台：Users - 用戶
 router.get(
   '/',

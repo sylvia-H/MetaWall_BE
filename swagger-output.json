@@ -149,6 +149,48 @@
         }
       }
     },
+    "/users/follow": {
+      "get": {
+        "tags": [
+          "User - 使用者"
+        ],
+        "description": "取得追蹤名單 API",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/users/follow/{id}": {
+      "post": {
+        "tags": [
+          "User - 使用者"
+        ],
+        "description": "使用者追蹤朋友 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "tags": [
+          "User - 使用者"
+        ],
+        "description": "使用者取消追蹤朋友 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/users/": {
       "get": {
         "tags": [

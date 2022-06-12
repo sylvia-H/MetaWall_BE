@@ -62,7 +62,7 @@ const UserController = {
     }
     generateJWTToken(user, 200, res);
   },
-  async updatePassword(req, res) {
+  async updatePassword(req, res, next) {
     const { password, confirmPassword } = req.body;
     // 兩次輸入密碼是否一致
     if (password !== confirmPassword) {
@@ -84,23 +84,15 @@ const UserController = {
       })
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
   },
-  async getProfile(req, res) {
+  async getProfile(req, res, next) {
     if (!req.user) {
-      return appError(
-        400,
-        'Bad Request Error - Failed to get data.',
-        next
-      );
+      return appError(400, 'Bad Request Error - Failed to get data.', next);
     }
     successHandler(res, req.user);
   },
-  async editProfile(req, res) {
+  async editProfile(req, res, next) {
     if (!req.user) {
-      return appError(
-        401,
-        'Bad Request Error - Please login again.',
-        next
-      );
+      return appError(401, 'Bad Request Error - Please login again.', next);
     }
     if (!req.body) {
       return appError(
@@ -120,7 +112,73 @@ const UserController = {
       })
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
   },
-  async getUsers(req, res) {
+  async followList(req, res, next) {
+    const followList = await User.findOne(
+      { _id: req.user._id },
+      'following'
+    ).populate({
+      path: 'user',
+      select: '_id name avatar',
+    });
+    successHandler(res, followList);
+  },
+  async follow(req, res, next) {
+    // 不能追蹤自己
+    if (req.params.id === req.user._id) {
+      return appError(
+        401,
+        'Bad Request Error - Failed to follow yourself.',
+        next
+      );
+    }
+    await User.updateOne(
+      {
+        _id: req.user._id,
+        'following.user': { $ne: req.params.id },
+      },
+      {
+        $addToSet: { following: { user: req.params.id } },
+      }
+    );
+    await User.updateOne(
+      {
+        _id: req.params.id,
+        'followers.user': { $ne: req.user._id },
+      },
+      {
+        $addToSet: { following: { user: req.user._id } },
+      }
+    );
+    successHandler(res, 'become a fan successfully!');
+  },
+  async unFollow(req, res, next) {
+    // 不能追蹤自己
+    if (req.params.id === req.user._id) {
+      return appError(
+        401,
+        'Bad Request Error - Failed to unfollow yourself.',
+        next
+      );
+    }
+    await User.updateOne(
+      {
+        _id: req.user._id,
+      },
+      {
+        $pull: { following: { user: req.params.id } },
+      }
+    );
+    await User.updateOne(
+      {
+        _id: req.params.id,
+      },
+      {
+        $pull: { followers: { user: req.user._id } },
+      }
+    );
+    successHandler(res, 'Unfollow successfully!');
+  },
+  async getUsers(req, res, next) {
     const { id } = req.params;
     if (id) {
       User.findById(id, (err, user) => {
@@ -135,11 +193,11 @@ const UserController = {
       successHandler(res, users);
     }
   },
-  async deleteAllUsers(req, res) {
+  async deleteAllUsers(req, res, next) {
     const users = await User.deleteMany({});
     successHandler(res, users);
   },
-  async deleteUsers(req, res) {
+  async deleteUsers(req, res, next) {
     const { id } = req.params;
     await User.findByIdAndDelete(id)
       .then((result) => {
@@ -150,7 +208,7 @@ const UserController = {
       })
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
   },
-  async editUsers(req, res) {
+  async editUsers(req, res, next) {
     const { body } = req;
     const { id } = req.params;
     await User.findByIdAndUpdate(id, body)
