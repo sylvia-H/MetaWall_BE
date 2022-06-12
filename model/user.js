@@ -64,7 +64,7 @@ const userSchema = new mongoose.Schema(
 
 userSchema.pre(/^find/, function(next) {
   this.populate({
-    path: 'user',
+    path: 'followers.user following.user',
     select: '_id name avatar'
   });
 
