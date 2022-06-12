@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "008c8322-0f3f-4258-9eab-59b9449282a2",
-		"name": "Hex-MetaWall_week7",
+		"_postman_id": "119b9a66-c49b-4767-b9b4-36b8b4f581a3",
+		"name": "Hex-MetaWall_BE",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12089641"
 	},
@@ -547,6 +547,143 @@
 							"path": [
 								"users",
 								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "使用者取得追蹤名單 Follow List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/users/follow",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "使用者追蹤朋友 Follow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/users/follow/62a5e27a4f39e7161750aa7b",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"follow",
+								"62a5e27a4f39e7161750aa7b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "使用者取消追蹤朋友 unFollow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_API}}/users/follow/62a5e27a4f39e7161750aa7b",
+							"host": [
+								"{{BASE_API}}"
+							],
+							"path": [
+								"users",
+								"follow",
+								"62a5e27a4f39e7161750aa7b"
 							]
 						}
 					},
