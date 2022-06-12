@@ -5,7 +5,7 @@ const doc = {
     title: 'MetaWall API',
     description: 'MetaWall 元宇宙社交圈 API 文件',
   },
-  host: 'https://still-brushlands-57702.herokuapp.com',
+  host: 'https://fierce-headland-11812.herokuapp.com',
   schemes: ['http', 'https'],
   securityDefinitions: {
     apiKeyAuth: {
