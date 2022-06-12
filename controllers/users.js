@@ -144,13 +144,13 @@ const UserController = {
         'followers.user': { $ne: req.user._id },
       },
       {
-        $addToSet: { following: { user: req.user._id } },
+        $addToSet: { followers: { user: req.user._id } },
       }
     );
     successHandler(res, 'become a fan successfully!');
   },
   async unFollow(req, res, next) {
-    // 不能追蹤自己
+    // 不能取消追蹤自己
     if (req.params.id === req.user._id) {
       return appError(
         401,
