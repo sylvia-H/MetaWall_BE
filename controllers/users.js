@@ -88,17 +88,18 @@ const UserController = {
     if (!req.user) {
       return appError(400, 'Bad Request Error - Failed to get data.', next);
     }
-    if (req.params.id) {
-      const _id = req.params.id;
-      User.findById(_id, '_id name avatar followers following', (err, user) => {
+    const { id } = req.params;
+    if (id) {
+      User.findById(id, (err, user) => {
         if (err) {
           return appError(400, 'Bad Request Error - ID not found', next);
         } else {
           successHandler(res, user);
         }
       });
+    } else {
+      successHandler(res, req.user);
     }
-    successHandler(res, req.user);
   },
   async editProfile(req, res, next) {
     if (!req.user) {
