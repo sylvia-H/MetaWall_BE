@@ -149,6 +149,30 @@
         }
       }
     },
+    "/users/profile/{id}": {
+      "get": {
+        "tags": [
+          "User - 使用者"
+        ],
+        "description": "使用者取得某位用戶個人資料 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "使用者成功取得某位用戶個人資料",
+            "schema": {
+              "$ref": "#/definitions/getProfile_Schema"
+            }
+          }
+        }
+      }
+    },
     "/users/follow": {
       "get": {
         "tags": [
