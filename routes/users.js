@@ -84,6 +84,21 @@ router.get(
   asyncErrorHandler(UserController.getProfile)
 );
 
+router.get(
+  '/profile/:id',
+  /**
+   * #swagger.tags = ['User - 使用者']
+   * #swagger.description = '使用者取得某位用戶個人資料 API'
+   * #swagger.responses[200] = {
+          description: '使用者成功取得某位用戶個人資料',
+          schema: { $ref: "#/definitions/getProfile_Schema" }
+        }
+      }
+   */
+  isAuth,
+  asyncErrorHandler(UserController.getProfile)
+);
+
 router.patch(
   '/profile',
   /**
