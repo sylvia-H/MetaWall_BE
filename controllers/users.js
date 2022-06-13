@@ -88,7 +88,7 @@ const UserController = {
     if (!req.user) {
       return appError(400, 'Bad Request Error - Failed to get data.', next);
     }
-    if (req.params) {
+    if (req.params.id) {
       const _id = req.params.id;
       User.findById(_id, '_id name avatar followers following', (err, user) => {
         if (err) {
