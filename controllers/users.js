@@ -50,7 +50,16 @@ const UserController = {
       );
     }
     // 從資料庫中撈出使用者資訊 & 取出密碼
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email }, (err, user) => {
+      if (err) {
+        return appError(
+          400,
+          'Bad Request Error - The email or password is incorrect.',
+          next
+        );
+      }
+      next(user);
+    }).select('+password');
     // 比對密碼
     const auth = await bcrypt.compare(password, user.password);
     if (!auth) {
