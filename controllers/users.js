@@ -58,7 +58,7 @@ const UserController = {
           next
         );
       }
-      next(user);
+      next();
     }).select('+password');
     // 比對密碼
     const auth = await bcrypt.compare(password, user.password);
