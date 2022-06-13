@@ -17,7 +17,7 @@ const PostController = {
       .find(q)
       .populate({
         path: 'author',
-        select: 'name avatar',
+        select: '_id name avatar',
       })
       .populate({
         path: 'comments',
@@ -107,7 +107,10 @@ const PostController = {
   },
   async getFavList(req, res, next) {
     const user = req.params.id;
-    const favList = await Post.find({ likes:user });
+    const favList = await Post.find({ likes: user }).populate({
+      path: 'author',
+      select: '_id name avatar',
+    });
     successHandler(res, favList);
   },
 };
