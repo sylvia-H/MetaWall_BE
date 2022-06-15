@@ -15,7 +15,7 @@ router.post(
       in: 'header',
       description: 'JSON Web Token',
       schema: {
-        $Authorization: 'Bearer ',
+        $authorization: '',
       }
     }
    */
