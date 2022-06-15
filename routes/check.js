@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const asyncErrorHandler = require('../helper/asyncErrorHandler');
-const { isAuth} = require('../helper/auth');
+const { isAuth } = require('../helper/auth');
 const CheckController = require('../controllers/check');
 
 // 前台：User - 使用者
