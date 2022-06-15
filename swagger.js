@@ -8,14 +8,14 @@ const doc = {
   host: 'https://fierce-headland-11812.herokuapp.com',
   schemes: ['http', 'https'],
   securityDefinitions: {
-    apiKeyAuth: {
+    bearerAuth:{
       type: 'apiKey',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
       in: 'headers',
       name: 'authorization',
       description: '請加上 API Token',
     },
-  },
-  securityDefinitions: {
     api_key: {
       type: 'apiKey',
       in: 'header', // can be 'header', 'query' or 'cookie'

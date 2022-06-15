@@ -12,6 +12,14 @@
     "https"
   ],
   "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "scheme": "bearer",
+      "bearerFormat": "JWT",
+      "in": "headers",
+      "name": "authorization",
+      "description": "請加上 API Token"
+    },
     "api_key": {
       "type": "apiKey",
       "in": "header",
@@ -22,6 +30,21 @@
   "consumes": [],
   "produces": [],
   "paths": {
+    "/check/check": {
+      "post": {
+        "tags": [
+          "Token 驗證"
+        ],
+        "description": "驗證 token 正確與否 API",
+        "parameters": [],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/users/sign_up": {
       "post": {
         "tags": [
