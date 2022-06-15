@@ -3,7 +3,7 @@ const appError = require('../helper/appError');
 const jwt = require('jsonwebtoken');
 
 const CheckController = {
-  async checkToken(req, res) {
+  async checkToken(req, res, next) {
     // 驗證 token 是否存在
     let token;
     const AUTH = req.headers.authorization;

@@ -16,13 +16,13 @@
       "type": "apiKey",
       "scheme": "bearer",
       "bearerFormat": "JWT",
-      "in": "header",
-      "name": "authorization",
+      "in": "headers",
+      "name": "Authorization",
       "description": "請加上 API Token"
     },
     "api_key": {
       "type": "apiKey",
-      "in": "header",
+      "in": "headers",
       "name": "X-API-KEY",
       "description": "system administrators's access permission"
     }
@@ -31,7 +31,7 @@
   "produces": [],
   "paths": {
     "/check/": {
-      "post": {
+      "get": {
         "tags": [
           "Token 驗證"
         ],

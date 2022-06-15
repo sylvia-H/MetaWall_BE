@@ -12,13 +12,13 @@ const doc = {
       type: 'apiKey',
       scheme: 'bearer',
       bearerFormat: 'JWT',
-      in: 'header',
-      name: 'authorization',
+      in: 'headers',
+      name: 'Authorization',
       description: '請加上 API Token',
     },
     api_key: {
       type: 'apiKey',
-      in: 'header', // can be 'header', 'query' or 'cookie'
+      in: 'headers', // can be 'header', 'query' or 'cookie'
       name: 'X-API-KEY', // name of the header, query parameter or cookie
       description: "system administrators's access permission",
     },

@@ -5,7 +5,7 @@ const { isAuth} = require('../helper/auth');
 const checkController = require('../controllers/check');
 
 // 前台：User - 使用者
-router.post(
+router.get(
   '/',
   /**
    * #swagger.tags = ['Token 驗證']
