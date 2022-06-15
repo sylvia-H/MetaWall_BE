@@ -27,7 +27,7 @@ const PostController = {
   },
   async getMyPosts(req, res, next) {
     const user = req.params.id;
-    const myPosts = await Post.find({ user }).populate({
+    const myPosts = await Post.find({ author: user }).populate({
       path: 'author',
       select: '_id name avatar',
     });
