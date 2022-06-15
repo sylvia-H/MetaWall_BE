@@ -46,7 +46,7 @@
               "properties": {
                 "Authorization": {
                   "type": "string",
-                  "example": ""
+                  "example": "Bearer "
                 }
               },
               "required": [
