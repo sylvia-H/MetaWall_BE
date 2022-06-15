@@ -30,7 +30,7 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/check/check": {
+    "/check/": {
       "post": {
         "tags": [
           "Token 驗證"

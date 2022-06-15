@@ -6,7 +6,7 @@ const checkController = require('../controllers/check');
 
 // 前台：User - 使用者
 router.post(
-  '/check',
+  '/',
   /**
    * #swagger.tags = ['Token 驗證']
    * #swagger.description = '驗證 token 正確與否 API'
