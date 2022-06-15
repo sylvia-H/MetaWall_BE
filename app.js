@@ -8,8 +8,8 @@ var cors = require('cors');
 const swaggerUI = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 
-var checkRouter = require('./routes/check');
 var indexRouter = require('./routes/index');
+var checkRouter = require('./routes/check');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 var commentsRouter = require('./routes/comments');
