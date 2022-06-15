@@ -119,7 +119,8 @@ const UserController = {
         if (!userData) {
           return appError(400, 'Bad Request Error - Failed to get data', next);
         }
-        successHandler(res, userData);
+        UserController.getProfile(req, res);
+        // successHandler(res, userData);
       })
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
   },
