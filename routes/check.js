@@ -19,6 +19,7 @@ router.get(
       }
     }
    */
+  isAuth,
   asyncErrorHandler(checkController.checkToken)
 );
 
