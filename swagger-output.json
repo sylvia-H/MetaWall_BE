@@ -40,7 +40,7 @@
           {
             "name": "authorization",
             "in": "header",
-            "description": "JSON Web Token",
+            "description": "JWT Web Token",
             "schema": {
               "type": "object",
               "properties": {

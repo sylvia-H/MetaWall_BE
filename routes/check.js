@@ -13,7 +13,7 @@ router.get(
    * #swagger.security = [{ "bearerAuth": [] }]
    * #swagger.parameters['authorization'] = {
       in: 'header',
-      description: 'JSON Web Token',
+      description: 'JWT Web Token',
       schema: {
         $authorization: '',
       }
