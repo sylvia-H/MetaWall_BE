@@ -44,13 +44,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "Authorization": {
+                "authorization": {
                   "type": "string",
-                  "example": "Bearer "
+                  "example": ""
                 }
               },
               "required": [
-                "Authorization"
+                "authorization"
               ]
             },
             "type": "string"
