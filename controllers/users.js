@@ -134,7 +134,7 @@ const UserController = {
   },
   async follow(req, res, next) {
     // 不能追蹤自己
-    if (req.params.id === req.user._id) {
+    if (req.params.id == req.user._id) {
       return appError(
         401,
         'Bad Request Error - Failed to follow yourself.',
