@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const asyncErrorHandler = require('../helper/asyncErrorHandler');
 const { isAuth} = require('../helper/auth');
-const checkController = require('../controllers/check');
+const CheckController = require('../controllers/check');
 
 // 前台：User - 使用者
 router.get(
@@ -20,7 +20,7 @@ router.get(
     }
    */
   isAuth,
-  asyncErrorHandler(checkController.checkToken)
+  asyncErrorHandler(CheckController.checkToken)
 );
 
 module.exports = router;
