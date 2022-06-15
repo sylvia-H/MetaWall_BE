@@ -12,7 +12,7 @@ const doc = {
       type: 'apiKey',
       scheme: 'bearer',
       bearerFormat: 'JWT',
-      in: 'headers',
+      in: 'header',
       name: 'authorization',
       description: '請加上 API Token',
     },

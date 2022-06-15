@@ -11,6 +11,13 @@ router.post(
    * #swagger.tags = ['Token 驗證']
    * #swagger.description = '驗證 token 正確與否 API'
    * #swagger.security = [{ "bearerAuth": [] }]
+   * #swagger.parameters['authorization'] = {
+      in: 'header',
+      description: 'JSON Web Token',
+      schema: {
+        $Authorization: '',
+      }
+    }
    */
   asyncErrorHandler(checkController.checkToken)
 );
