@@ -16,7 +16,7 @@
       "type": "apiKey",
       "scheme": "bearer",
       "bearerFormat": "JWT",
-      "in": "headers",
+      "in": "header",
       "name": "authorization",
       "description": "請加上 API Token"
     },
@@ -36,7 +36,26 @@
           "Token 驗證"
         ],
         "description": "驗證 token 正確與否 API",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JSON Web Token",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Authorization": {
+                  "type": "string",
+                  "example": ""
+                }
+              },
+              "required": [
+                "Authorization"
+              ]
+            },
+            "type": "string"
+          }
+        ],
         "responses": {},
         "security": [
           {
