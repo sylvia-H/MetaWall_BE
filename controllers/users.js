@@ -119,9 +119,10 @@ const UserController = {
         if (!userData) {
           return appError(400, 'Bad Request Error - Failed to get data', next);
         }
+        UserController.getProfile(req, res);
+        // successHandler(res, userData);
       })
       .catch(() => appError(400, 'Bad Request Error - ID not found', next));
-    UserController.getProfile(req, res);
   },
   async followList(req, res, next) {
     const id = req.user._id;
