@@ -31,11 +31,11 @@ const doc = {
     },
     sign_in_Schema: {
       $email: 'test@gmail.com',
-      $password: '12345678',
+      $password: '1q2w3e4r',
     },
     updatePassword_Schema: {
       $password: '12345678',
-      $confirmPassword: '87654321',
+      $confirmPassword: '12345678',
     },
     updateProfile_Schema: {
       $name: 'OldUser',

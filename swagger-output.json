@@ -289,7 +289,9 @@
         },
         "security": [
           {
-            "bearerAuth": [],
+            "bearerAuth": []
+          },
+          {
             "api_key": []
           }
         ]
@@ -303,7 +305,9 @@
         "responses": {},
         "security": [
           {
-            "bearerAuth": [],
+            "bearerAuth": []
+          },
+          {
             "api_key": []
           }
         ]
@@ -333,7 +337,9 @@
         },
         "security": [
           {
-            "bearerAuth": [],
+            "bearerAuth": []
+          },
+          {
             "api_key": []
           }
         ]
@@ -354,7 +360,9 @@
         "responses": {},
         "security": [
           {
-            "bearerAuth": [],
+            "bearerAuth": []
+          },
+          {
             "api_key": []
           }
         ]
@@ -375,7 +383,9 @@
         "responses": {},
         "security": [
           {
-            "bearerAuth": [],
+            "bearerAuth": []
+          },
+          {
             "api_key": []
           }
         ]
@@ -666,7 +676,7 @@
         },
         "password": {
           "type": "string",
-          "example": "12345678"
+          "example": "1q2w3e4r"
         }
       },
       "required": [
@@ -683,7 +693,7 @@
         },
         "confirmPassword": {
           "type": "string",
-          "example": "87654321"
+          "example": "12345678"
         }
       },
       "required": [

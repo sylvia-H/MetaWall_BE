@@ -164,7 +164,7 @@ router.get(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '取得所有用戶資訊 API'
-   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    * #swagger.responses[200] = {
           description: '管理者成功取得所有使用者資料',
           schema: { $ref: "#/definitions/getAllUsers_Schema" }
@@ -181,7 +181,7 @@ router.get(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '取得單一用戶資訊 API'
-   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    * #swagger.responses[200] = {
           description: '管理者成功取得單一使用者資料',
           schema: { $ref: "#/definitions/getUser_Schema" }
@@ -198,7 +198,7 @@ router.delete(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '刪除所有用戶資訊 API'
-   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    */
   isAuth,
   isAdmin,
@@ -210,7 +210,7 @@ router.delete(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '刪除單一用戶資訊 API'
-   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    */
   isAuth,
   isAdmin,
@@ -222,7 +222,7 @@ router.patch(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '修改單一用戶資訊 API'
-   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    */
   isAuth,
   isAdmin,
