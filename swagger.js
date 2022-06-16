@@ -5,13 +5,13 @@ const doc = {
     title: 'MetaWall API',
     description: 'MetaWall 元宇宙社交圈 API 文件',
   },
-  host: 'https://fierce-headland-11812.herokuapp.com',
+  host: 'fierce-headland-11812.herokuapp.com',
   schemes: ['http', 'https'],
   securityDefinitions: {
     bearerAuth:{
       type: 'apiKey',
-      // scheme: 'bearer',
-      // bearerFormat: 'JWT',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
       in: 'headers',
       name: 'authorization',
       description: '請加上 API Token（token 前面請加上 Bearer）',
