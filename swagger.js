@@ -6,7 +6,7 @@ const doc = {
     description: 'MetaWall 元宇宙社交圈 API 文件',
   },
   host: 'fierce-headland-11812.herokuapp.com',
-  schemes: ['http', 'https'],
+  schemes: ['https'],
   securityDefinitions: {
     bearerAuth:{
       type: 'apiKey',

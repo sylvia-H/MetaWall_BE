@@ -8,7 +8,6 @@
   "basePath": "/",
   "tags": [],
   "schemes": [
-    "http",
     "https"
   ],
   "securityDefinitions": {
