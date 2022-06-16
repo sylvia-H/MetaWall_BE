@@ -13,7 +13,7 @@
   ],
   "securityDefinitions": {
     "bearerAuth": {
-      "type": "apiKey",
+      "type": "http",
       "scheme": "bearer",
       "bearerFormat": "JWT",
       "in": "headers",
@@ -36,26 +36,7 @@
           "Token 驗證"
         ],
         "description": "驗證 token 正確與否 API",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "description": "JWT Web Token",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "authorization": {
-                  "type": "string",
-                  "example": ""
-                }
-              },
-              "required": [
-                "authorization"
-              ]
-            },
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {},
         "security": [
           {

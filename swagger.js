@@ -9,7 +9,7 @@ const doc = {
   schemes: ['http', 'https'],
   securityDefinitions: {
     bearerAuth:{
-      type: 'apiKey',
+      type: 'http',
       scheme: 'bearer',
       bearerFormat: 'JWT',
       in: 'headers',

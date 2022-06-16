@@ -11,13 +11,6 @@ router.get(
    * #swagger.tags = ['Token 驗證']
    * #swagger.description = '驗證 token 正確與否 API'
    * #swagger.security = [{ "bearerAuth": [] }]
-   * #swagger.parameters['authorization'] = {
-      in: 'header',
-      description: 'JWT Web Token',
-      schema: {
-        $authorization: '',
-      }
-    }
    */
   isAuth,
   asyncErrorHandler(CheckController.checkToken)
