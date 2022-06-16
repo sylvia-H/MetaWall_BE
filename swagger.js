@@ -10,8 +10,8 @@ const doc = {
   securityDefinitions: {
     bearerAuth:{
       type: 'apiKey',
-      scheme: 'bearer',
-      bearerFormat: 'JWT',
+      // scheme: 'bearer',
+      // bearerFormat: 'JWT',
       in: 'headers',
       name: 'authorization',
       description: '請加上 API Token（token 前面請加上 Bearer）',

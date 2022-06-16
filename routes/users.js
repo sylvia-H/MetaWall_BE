@@ -52,6 +52,7 @@ router.post(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者修改密碼 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    * #swagger.parameters['body'] = {
         in: "body",
         type: "object",
@@ -74,6 +75,7 @@ router.get(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者取得個人資料 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    * #swagger.responses[200] = {
           description: '使用者成功取得個人資料',
           schema: { $ref: "#/definitions/getProfile_Schema" }
@@ -89,6 +91,7 @@ router.get(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者取得某位用戶個人資料 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    * #swagger.responses[200] = {
           description: '使用者成功取得某位用戶個人資料',
           schema: { $ref: "#/definitions/getProfile_Schema" }
@@ -104,6 +107,7 @@ router.patch(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者修改個人資料 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    * #swagger.parameters['body'] = {
         in: "body",
         type: "object",
@@ -126,6 +130,7 @@ router.get(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '取得追蹤名單 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    */
   isAuth,
   asyncErrorHandler(UserController.followList)
@@ -136,6 +141,7 @@ router.post(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者追蹤朋友 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    */
   isAuth,
   asyncErrorHandler(UserController.follow)
@@ -146,6 +152,7 @@ router.delete(
   /**
    * #swagger.tags = ['User - 使用者']
    * #swagger.description = '使用者取消追蹤朋友 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    */
   isAuth,
   asyncErrorHandler(UserController.unFollow)
@@ -157,7 +164,7 @@ router.get(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '取得所有用戶資訊 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
    * #swagger.responses[200] = {
           description: '管理者成功取得所有使用者資料',
           schema: { $ref: "#/definitions/getAllUsers_Schema" }
@@ -174,7 +181,7 @@ router.get(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '取得單一用戶資訊 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
    * #swagger.responses[200] = {
           description: '管理者成功取得單一使用者資料',
           schema: { $ref: "#/definitions/getUser_Schema" }
@@ -191,7 +198,7 @@ router.delete(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '刪除所有用戶資訊 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
    */
   isAuth,
   isAdmin,
@@ -203,7 +210,7 @@ router.delete(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '刪除單一用戶資訊 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
    */
   isAuth,
   isAdmin,
@@ -215,7 +222,7 @@ router.patch(
   /**
    * #swagger.tags = ['後台：Users - 用戶']
    * #swagger.description = '修改單一用戶資訊 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [], "api_key": [] }]
    */
   isAuth,
   isAdmin,
