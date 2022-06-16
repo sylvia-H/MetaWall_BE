@@ -17,13 +17,13 @@
       "bearerFormat": "JWT",
       "in": "headers",
       "name": "authorization",
-      "description": "請加上 API Token（token 前面請加上 Bearer）"
+      "description": "API Token 前面請加上 Bearer"
     },
     "api_key": {
       "type": "apiKey",
       "in": "headers",
       "name": "X-API-KEY",
-      "description": "system administrators's access permission"
+      "description": "系統管理員的訪問權限許可"
     }
   },
   "consumes": [],
@@ -405,7 +405,12 @@
               "$ref": "#/definitions/getPosts_Schema"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -431,7 +436,12 @@
               "$ref": "#/definitions/getPosts_Schema"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -441,6 +451,9 @@
         "parameters": [],
         "responses": {},
         "security": [
+          {
+            "bearerAuth": []
+          },
           {
             "api_key": []
           }
@@ -461,7 +474,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -476,7 +494,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "patch": {
         "tags": [
@@ -501,7 +524,12 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/posts/{id}/like": {
@@ -518,7 +546,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -533,7 +566,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/posts/user/{id}": {
@@ -550,7 +588,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/comments/{article_id}": {
@@ -567,7 +610,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/comments/": {
@@ -577,7 +625,12 @@
         ],
         "description": "新增單筆貼文評論資訊 API",
         "parameters": [],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -587,6 +640,9 @@
         "parameters": [],
         "responses": {},
         "security": [
+          {
+            "bearerAuth": []
+          },
           {
             "api_key": []
           }
@@ -607,7 +663,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "patch": {
         "tags": [
@@ -622,7 +683,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/upload/": {
@@ -640,7 +706,12 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },

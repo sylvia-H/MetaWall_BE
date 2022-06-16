@@ -14,13 +14,13 @@ const doc = {
       bearerFormat: 'JWT',
       in: 'headers',
       name: 'authorization',
-      description: '請加上 API Token（token 前面請加上 Bearer）',
+      description: 'API Token 前面請加上 Bearer',
     },
     api_key: {
       type: 'apiKey',
       in: 'headers', // can be 'header', 'query' or 'cookie'
       name: 'X-API-KEY', // name of the header, query parameter or cookie
-      description: "system administrators's access permission",
+      description: "系統管理員的訪問權限許可",
     },
   },
   definitions: {

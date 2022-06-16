@@ -9,6 +9,7 @@ router.get(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '取得所有貼文 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
     * #swagger.responses[200] = {
         description: '成功取得所有貼文內容',
         schema: { $ref: "#/definitions/getPosts_Schema" }
@@ -24,6 +25,7 @@ router.get(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '取得個人貼文列表 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
   */
   isAuth,
   asyncErrorHandler(PostController.getMyPosts)
@@ -34,6 +36,7 @@ router.post(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '新增貼文 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
     * #swagger.parameters['body'] = {
         in: "body",
         type: "object",
@@ -56,7 +59,7 @@ router.delete(
   /**
    * #swagger.tags = ['後台：Posts - 貼文']
    * #swagger.description = '刪除所有貼文 API'
-   * #swagger.security = [{ "api_key": [] }]
+   * #swagger.security = [{ "bearerAuth": [] },{ "api_key": [] }]
    */
   isAuth,
   isAdmin,
@@ -68,6 +71,7 @@ router.delete(
   /**
    * #swagger.tags = ['Posts - 貼文']
    * #swagger.description = '刪除單一貼文 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
    */
   isAuth,
   asyncErrorHandler(PostController.deletePosts)
@@ -78,6 +82,7 @@ router.patch(
   /**
    * #swagger.tags = ['Posts - 貼文']
    * #swagger.description = '修改單一貼文 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
     * #swagger.parameters['body'] = {
         in: "body",
         type: "object",
@@ -95,6 +100,7 @@ router.post(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '貼文按讚 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
   */
   isAuth,
   asyncErrorHandler(PostController.like)
@@ -105,6 +111,7 @@ router.delete(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '貼文收回讚 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
   */
   isAuth,
   asyncErrorHandler(PostController.unlike)
@@ -115,6 +122,7 @@ router.get(
   /**
     * #swagger.tags = ['Posts - 貼文']
     * #swagger.description = '取得個人按讚列表 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
   */
   isAuth,
   asyncErrorHandler(PostController.getFavList)
