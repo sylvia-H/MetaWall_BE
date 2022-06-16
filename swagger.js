@@ -13,8 +13,8 @@ const doc = {
       scheme: 'bearer',
       bearerFormat: 'JWT',
       in: 'headers',
-      name: 'Authorization',
-      description: '請加上 API Token',
+      name: 'authorization',
+      description: '請加上 API Token（token 前面請加上 Bearer）',
     },
     api_key: {
       type: 'apiKey',
