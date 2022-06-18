@@ -44,6 +44,26 @@
         ]
       }
     },
+    "/auth/google": {
+      "get": {
+        "tags": [
+          "Google 第三方登入"
+        ],
+        "description": "Google 第三方登入 Passport API",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "tags": [
+          "Google 第三方登入 callback function"
+        ],
+        "description": "Google 第三方登入 Passport callback function",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/users/sign_up": {
       "post": {
         "tags": [

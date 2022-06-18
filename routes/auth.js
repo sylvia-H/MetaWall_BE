@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const asyncErrorHandler = require('../helper/asyncErrorHandler');
-const successHandler = require('../helper/successHandlers');
 const passport = require('passport');
+const { generateJWTToken } = require('../helper/auth');
 
 router.get(
   '/google',
@@ -10,11 +9,10 @@ router.get(
    * #swagger.tags = ['Google 第三方登入']
    * #swagger.description = 'Google 第三方登入 Passport API'
    */
-  asyncErrorHandler(
-    passport.authenticate('google', {
-      scope: ['email', 'profile'],
-    })
-  )
+
+  passport.authenticate('google', {
+    scope: ['email', 'profile'],
+  })
 );
 
 router.get(
