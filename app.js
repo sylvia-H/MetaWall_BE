@@ -10,6 +10,7 @@ const swaggerFile = require('./swagger-output.json');
 
 var indexRouter = require('./routes/index');
 var checkRouter = require('./routes/check');
+var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 var commentsRouter = require('./routes/comments');
@@ -18,7 +19,10 @@ var uploadRouter = require('./routes/upload');
 var app = express();
 
 // MongoDB Connection
-require('./helper/DB_connection');
+require('./connection/DB_connection');
+
+// Google Passport OAuth Connection
+require('./connection/passport');
 
 // cors headers
 app.use(cors());
@@ -32,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routers
 app.use('/', indexRouter);
 app.use('/check', checkRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/comments', commentsRouter);

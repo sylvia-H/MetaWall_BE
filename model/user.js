@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema(
   {
+    googleAuthID: String,
     name: {
       type: String,
       required: [true, '請輸入您的名字'],
