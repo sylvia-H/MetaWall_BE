@@ -31,6 +31,17 @@ router.get(
   asyncErrorHandler(PostController.getMyPosts)
 );
 
+router.get(
+  '/space/:id',
+  /**
+    * #swagger.tags = ['Posts - 貼文']
+    * #swagger.description = '取得其他作者的貼文列表 API'
+   * #swagger.security = [{ "bearerAuth": [] }]
+  */
+  isAuth,
+  asyncErrorHandler(PostController.getSomeonePosts)
+);
+
 router.post(
   '/',
   /**

@@ -12,8 +12,7 @@ const PostController = {
     const timeSort = req.query.timeSort === 'asc' ? 'createdAt' : '-createdAt';
     // 搜尋貼文內容
     const queryStr = decodeURI(req.query.q);
-    const q =
-      queryStr !== undefined ? { content: new RegExp(queryStr) } : {};
+    const q = queryStr !== undefined ? { content: new RegExp(queryStr) } : {};
     const posts = await Post.find(permission)
       .find(q)
       .populate({
@@ -33,6 +32,29 @@ const PostController = {
       select: '_id name avatar',
     });
     successHandler(res, myPosts);
+  },
+  async getSomeonePosts(req, res, next) {
+    // 過濾出作者設為公開的貼文
+    const user = req.params.id;
+    const permission = {
+      $and: [{ author: { _id: user } }, { privacy: 'public' }],
+    };
+    // 貼文時間序列
+    const timeSort = req.query.timeSort === 'asc' ? 'createdAt' : '-createdAt';
+    // 搜尋貼文內容
+    const queryStr = decodeURI(req.query.q);
+    const q = queryStr !== undefined ? { content: new RegExp(queryStr) } : {};
+    const posts = await Post.find(permission)
+      .find(q)
+      .populate({
+        path: 'author',
+        select: '_id name avatar',
+      })
+      .populate({
+        path: 'comments',
+      })
+      .sort(timeSort);
+    successHandler(res, posts);
   },
   async createPosts(req, res, next) {
     // 只能 post 自己的貼文

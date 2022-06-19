@@ -552,6 +552,28 @@
         ]
       }
     },
+    "/posts/space/{id}": {
+      "get": {
+        "tags": [
+          "Posts - 貼文"
+        ],
+        "description": "取得其他作者的貼文列表 API",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {},
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/posts/{id}/like": {
       "post": {
         "tags": [
