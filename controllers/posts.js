@@ -27,10 +27,21 @@ const PostController = {
   },
   async getMyPosts(req, res, next) {
     const user = req.params.id;
-    const myPosts = await Post.find({ author: user }).populate({
-      path: 'author',
-      select: '_id name avatar',
-    });
+    // 貼文時間序列
+    const timeSort = req.query.timeSort === 'asc' ? 'createdAt' : '-createdAt';
+    // 搜尋貼文內容
+    const queryStr = decodeURI(req.query.q);
+    const q = queryStr !== undefined ? { content: new RegExp(queryStr) } : {};
+    const myPosts = await Post.find({ author: user })
+      .find(q)
+      .populate({
+        path: 'author',
+        select: '_id name avatar',
+      })
+      .populate({
+        path: 'comments',
+      })
+      .sort(timeSort);
     successHandler(res, myPosts);
   },
   async getSomeonePosts(req, res, next) {
