@@ -94,7 +94,7 @@ const generateUrlJWTToken = (user, statusCode, res) => {
   //     avatar: user.avatar,
   //   },
   // });
-  res.redirect(`/callback?token=${token}`)
+  res.redirect(`${process.env.FRONT_END_BASE_URL}/callback?token=${token}`)
 };
 
 module.exports = { isAuth, isAdmin, generateJWTToken, generateUrlJWTToken };
