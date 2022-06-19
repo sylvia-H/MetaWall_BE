@@ -11,7 +11,7 @@ const PostController = {
     // 貼文時間序列
     const timeSort = req.query.timeSort === 'asc' ? 'createdAt' : '-createdAt';
     // 搜尋貼文內容
-    const queryStr = decodeURI(decodeURI(req.query.q));
+    const queryStr = decodeURI(req.query.q);
     const q =
       queryStr !== undefined ? { content: new RegExp(queryStr) } : {};
     const posts = await Post.find(permission)
