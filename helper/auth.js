@@ -76,4 +76,25 @@ const generateJWTToken = (user, statusCode, res) => {
   });
 };
 
-module.exports = { isAuth, isAdmin, generateJWTToken };
+const generateUrlJWTToken = (user, statusCode, res) => {
+  // 產生 JWT token
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.JWT_EXPIRES_DAY }
+  );
+  user.password = undefined;
+  // res.status(statusCode).json({
+  //   status: 'success',
+  //   user: {
+  //     token,
+  //     name: user.name,
+  //     role: user.role,
+  //     _id: user._id,
+  //     avatar: user.avatar,
+  //   },
+  // });
+  res.redirect(`/callback?token=${token}`)
+};
+
+module.exports = { isAuth, isAdmin, generateJWTToken, generateUrlJWTToken };

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const { generateJWTToken } = require('../helper/auth');
+const { generateUrlJWTToken } = require('../helper/auth');
 
 router.get(
   '/google',
@@ -23,7 +23,7 @@ router.get(
    */
   passport.authenticate('google', { session: false }),
   (req, res) => {
-    generateJWTToken(req.user, 201, res);
+    generateUrlJWTToken(req.user, 201, res);
   }
 );
 
